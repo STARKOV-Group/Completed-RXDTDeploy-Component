@@ -19,6 +19,10 @@ variables:
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
   PackageProjectPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\Packages\$CI_PROJECT_NAME
+  # Стандартные настройки
+  WebProtocol: http
+  ServerHttpsPort: 443
+  ServerHttpPort: 80
 
 stages:          # List of stages for jobs, and their order of execution
   - $[[ inputs.StageCheckVariablesName ]]
