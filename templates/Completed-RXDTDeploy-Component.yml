@@ -6,7 +6,7 @@ spec:
 Completed-RXDTDeploy-Component:
   stage: $[[ inputs.stage ]]
   script:
-    - echo test
+    - echo Completed-RXDTDeploy-Component
 
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
