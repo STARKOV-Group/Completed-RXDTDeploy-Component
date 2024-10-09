@@ -13,10 +13,10 @@ variables:
   StageDeployDTPackageName: "Публикация (DT)"
 
 stages:          # List of stages for jobs, and their order of execution
-  - ${StageCheckVariablesName}
-  - $StagePreparedServerName
-  - $StageBuildPackageName
-  - $StageDeployDTPackageName
+  - Проверка переменных
+  - Подготовка сервера
+  - Сборка пакета
+  - Публикация (DT)
 
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
