@@ -1,9 +1,3 @@
-variables:
-  StageCheckVariablesName: RX-CheckVariables
-  StagePreparedServerName: RX-PreparedServer
-  StageBuildPackageName: RX-BuildPackage
-  StageDeployDTPackageName: RX-DeployDTPackage
-
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
     inputs:
