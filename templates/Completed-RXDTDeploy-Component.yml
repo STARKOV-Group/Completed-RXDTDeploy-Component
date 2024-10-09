@@ -1,3 +1,10 @@
+spec:
+  inputs:
+    StageCheckVariablesName:
+      default: "Проверка переменных"
+---
+
+
 variables:
   DDSFolderPath: C:\DRX\DRXDDS
   DTFolderPath: C:\DRX\DRXTool
@@ -13,7 +20,7 @@ variables:
   StageDeployDTPackageName: "Публикация (DT)"
 
 stages:          # List of stages for jobs, and their order of execution
-  - Проверка переменных
+  - $[[ inputs.StageCheckVariablesName ]]
   - Подготовка сервера
   - Сборка пакета
   - Публикация (DT)
@@ -21,7 +28,7 @@ stages:          # List of stages for jobs, and their order of execution
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
     inputs:
-      stage: Проверка переменных
+      stage: $[[ inputs.StageCheckVariablesName ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
     inputs:
       stage: Подготовка сервера
