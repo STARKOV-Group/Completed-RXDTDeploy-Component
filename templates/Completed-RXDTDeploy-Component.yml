@@ -8,6 +8,7 @@ spec:
       default: "Сборка пакета"
     StageDeployDTPackageName:
       default: "Публикация (DT)"
+---
 
 variables:
   DDSFolderPath: C:\DRX\DRXDDS
