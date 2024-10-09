@@ -21,13 +21,13 @@ stages:          # List of stages for jobs, and their order of execution
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
     inputs:
-      stage: ${StageCheckVariablesName}
+      stage: Проверка переменных
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
     inputs:
-      stage: $StagePreparedServerName
+      stage: Подготовка сервера
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@main
     inputs:
-      stage: $StageBuildPackageName
+      stage: Сборка пакета
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
     inputs:
-      stage: $StageDeployDTPackageName
+      stage: Публикация (DT)
