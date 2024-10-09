@@ -2,8 +2,13 @@ spec:
   inputs:
     StageCheckVariablesName:
       default: "Проверка переменных"
+    StagePreparedServerName:
+      default: "Подготовка сервера"
+    StageBuildPackageName:
+      default: "Сборка пакета"
+    StageDeployDTPackageName:
+      default: "Публикация (DT)"
 ---
-
 
 variables:
   DDSFolderPath: C:\DRX\DRXDDS
@@ -14,16 +19,12 @@ variables:
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
   PackageProjectPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\Packages\$CI_PROJECT_NAME
-  StageCheckVariablesName: "Проверка переменных"
-  StagePreparedServerName: "Подготовка сервера"
-  StageBuildPackageName: "Сборка пакета"
-  StageDeployDTPackageName: "Публикация (DT)"
 
 stages:          # List of stages for jobs, and their order of execution
   - $[[ inputs.StageCheckVariablesName ]]
-  - Подготовка сервера
-  - Сборка пакета
-  - Публикация (DT)
+  - $[[ inputs.StagePreparedServerName ]]
+  - $[[ inputs.StageBuildPackageName ]]
+  - $[[ inputs.StageDeployDTPackageName ]]
 
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
@@ -31,10 +32,10 @@ include:
       stage: $[[ inputs.StageCheckVariablesName ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
     inputs:
-      stage: Подготовка сервера
+      stage: $[[ inputs.StagePreparedServerName ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@main
     inputs:
-      stage: Сборка пакета
+      stage: $[[ inputs.StageBuildPackageName ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
     inputs:
-      stage: Публикация (DT)
+      stage: $[[ inputs.StageDeployDTPackageName ]]
