@@ -1,22 +1,12 @@
 variables:
-  RXVERSION: 4.9.0
   DDSFolderPath: C:\DRX\DRXDDS
   DTFolderPath: C:\DRX\DRXTool
   ProjectsFolderPath: C:\DRX\Projects
+  AutoGenPackageUtilPath: C:\DRX\Tools\PackageXMLGenerator
   GitProjectFolder: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\$CI_PROJECT_NAME
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
   PackageProjectPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\Packages\$CI_PROJECT_NAME
-  AutoGenPackageUtilPath: C:\DRX\Tools\PackageXMLGenerator
-  Repositories: 
-    Work | ssh://git@git.starkovgrp.local:2224/golovnev/Test4.10Work.git,
-    Base | ssh://git@git.starkovgrp.local:2224/golovnev/Test4.10Base.git
-  DeployIpServer: 10.19.3.128
-  WebProtocol: http
-  ServerHttpsPort: 443
-  ServerHttpPort: 80
-  DeployUserName: Service User
-  DeployUserPassword: "11111"
   StageCheckVariablesName: RX-CheckVariables
   StagePreparedServerName: RX-PreparedServer
   StageBuildPackageName: RX-BuildPackage
