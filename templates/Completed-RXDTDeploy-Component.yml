@@ -1,5 +1,24 @@
+spec:
+  inputs:
+    stageCheckVariablesName:
+      default: Проверка переменных
+    stagePreparedServerName:
+      default: Подготовка сервера
+    stageBuildPackageName:
+      default: Сборка пакета
+    stageDeployDTPackageName:
+      default: Публикация (DT)
+
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
+    inputs:
+      stage: $[[ inputs.stageCheckVariablesName ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
+    inputs:
+      stage: $[[ inputs.stagePreparedServerName ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@main
+    inputs:
+      stage: $[[ inputs.stageBuildPackageName ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
+    inputs:
+      stage: $[[ inputs.stageDeployDTPackageName ]]
