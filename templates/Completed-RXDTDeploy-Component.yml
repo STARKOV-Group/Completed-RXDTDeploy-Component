@@ -7,10 +7,10 @@ variables:
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
   PackageProjectPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\Packages\$CI_PROJECT_NAME
-  StageCheckVariablesName: RX-CheckVariables
-  StagePreparedServerName: RX-PreparedServer
-  StageBuildPackageName: RX-BuildPackage
-  StageDeployDTPackageName: RX-DeployDTPackage
+  StageCheckVariablesName: "Проверка переменных"
+  StagePreparedServerName: "Подготовка сервера"
+  StageBuildPackageName: "Сборка пакета"
+  StageDeployDTPackageName: "Публикация (DT)"
 
 stages:          # List of stages for jobs, and their order of execution
   - $StageCheckVariablesName
