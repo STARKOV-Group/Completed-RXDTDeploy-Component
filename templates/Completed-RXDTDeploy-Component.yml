@@ -13,7 +13,7 @@ variables:
   StageDeployDTPackageName: "Публикация (DT)"
 
 stages:          # List of stages for jobs, and their order of execution
-  - $StageCheckVariablesName
+  - ${StageCheckVariablesName}
   - $StagePreparedServerName
   - $StageBuildPackageName
   - $StageDeployDTPackageName
