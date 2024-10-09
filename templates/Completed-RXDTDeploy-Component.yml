@@ -1,7 +1,7 @@
 spec:
   inputs:
-    stageBuildPackage:
-      default: RX-BuildPackage
+    stage:
+      default: test
 ---
 Completed-RXDTDeploy-Component:
   include:
@@ -9,3 +9,6 @@ Completed-RXDTDeploy-Component:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@main
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
+  stage: $[[ inputs.stage ]]
+  script:
+    - echo test
