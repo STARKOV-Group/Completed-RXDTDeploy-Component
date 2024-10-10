@@ -8,6 +8,8 @@ spec:
       default: "Сборка пакета"
     StageDeployDTPackageName:
       default: "Публикация (DT)"
+    rules:
+      default: '$CI_COMMIT_BRANCH == "Test" ||  $CI_COMMIT_BRANCH == "test"'
 ---
 
 variables:
@@ -34,12 +36,16 @@ include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
     inputs:
       stage: $[[ inputs.StageCheckVariablesName ]]
+      rules: $[[ inputs.rules ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
     inputs:
       stage: $[[ inputs.StagePreparedServerName ]]
+      rules: $[[ inputs.rules ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@main
     inputs:
       stage: $[[ inputs.StageBuildPackageName ]]
+      rules: $[[ inputs.rules ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
     inputs:
       stage: $[[ inputs.StageDeployDTPackageName ]]
+      rules: $[[ inputs.rules ]]
