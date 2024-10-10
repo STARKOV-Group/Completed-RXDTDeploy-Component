@@ -16,7 +16,7 @@ variables:
   DDSFolderPath: C:\DRX\DRXDDS
   DTFolderPath: C:\DRX\DRXTool
   AutoGenPackageUtilPath: C:\DRX\Tools\PackageXMLGenerator
-  ProjectsFolderPath: .
+  ProjectsFolderPath: C:\DRX\Projects
   GitProjectFolder: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\$CI_PROJECT_NAME
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
