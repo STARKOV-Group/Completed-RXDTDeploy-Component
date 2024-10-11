@@ -13,10 +13,10 @@ spec:
 ---
 
 variables:
-  DDSFolderPath: C:\DRX\DRXDDS
-  DTFolderPath: C:\DRX\DRXTool
-  AutoGenPackageUtilPath: C:\DRX\Tools\PackageXMLGenerator
-  ProjectsFolderPath: C:\DRX\Projects
+  DDSFolderPath: C:\CICD\DDS
+  DTFolderPath: C:\CICD\DTCore
+  AutoGenPackageUtilPath: C:\CICD\Tools\PackageXMLGenerator
+  ProjectsFolderPath: C:\CICD\Projects
   GitProjectFolder: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\$CI_PROJECT_NAME
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
