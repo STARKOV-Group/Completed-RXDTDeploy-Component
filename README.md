@@ -47,4 +47,5 @@ variables:
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/Completed-RXDTDeploy-Component/Completed-RXDTDeploy-Component@main
     inputs:
+      rules: '$CI_COMMIT_BRANCH == "Test"' # Ограничение на срабатывание только по публикации в ветку Test  
       StageCheckVariablesName: Меняем наименование этапа
