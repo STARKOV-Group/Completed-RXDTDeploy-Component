@@ -25,6 +25,7 @@ variables:
   WebProtocol: http
   ServerHttpsPort: 443
   ServerHttpPort: 80
+  GIT_STRATEGY: none
 
 stages:          # List of stages for jobs, and their order of execution
   - $[[ inputs.StageCheckVariablesName ]]
