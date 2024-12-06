@@ -35,16 +35,18 @@ Repositories:
 Код для вставки в yaml проекта, для использования компоненты: 
 
 ```yaml
+# Чекбокс "Expand variable reference" снимаем, возможно и "Protect variable"
 variables:
-  RXVERSION: [Версия RX]
+  RXVERSION: "Версия RX"
   Repositories: 
     Список репозиториев в формате "[Work или Base] | [ssh путь до репы]" 
-  DeployIpServer: [Ip сервера] # Задавать желательно через переменные в настройках Ci_CD чтоб не хранить в открытом доступе. Галку "Expand variable reference" снимаем, возможно и "Protect variable"
-  WebProtocol: [http или https, можно проустить если стандартный http] # Задавать желательно через переменные в настройках Ci_CD чтоб не хранить в открытом доступе. Галку "Expand variable reference" снимаем, возможно и "Protect variable"
-  ServerHttpsPort: [Порт https, можно пропустить если стандартный 443] # Задавать желательно через переменные в настройках Ci_CD чтоб не хранить в открытом доступе. Галку "Expand variable reference" снимаем, возможно и "Protect variable"
-  ServerHttpPort: [Порт http, можно пропустить если стандартный 80] # Задавать желательно через переменные в настройках Ci_CD чтоб не хранить в открытом доступе. Галку "Expand variable reference" снимаем, возможно и "Protect variable"
-  DeployUserName: [Логин пользователя от которого запускается публикация] # Задавать желательно через переменные в настройках Ci_CD чтоб не хранить в открытом доступе. Галку "Expand variable reference" снимаем, возможно и "Protect variable"
-  DeployUserPassword: [Пароль пользователя от которого запускается публикация] # Задавать желательно через переменные в настройках Ci_CD чтоб не хранить в открытом доступе. Галку "Expand variable reference" снимаем, возможно и "Protect variable"
+  # Задавать желательно через переменные в настройках Ci_CD чтоб не хранить в открытом доступе. 
+  DeployIpServer: "Ip сервера]   
+  WebProtocol: "http или https, можно пропустить если стандартный http" 
+  ServerHttpsPort: "Порт https, можно пропустить если стандартный 443"
+  ServerHttpPort: "Порт http, можно пропустить если стандартный 80"
+  DeployUserName: "Логин пользователя от которого запускается публикация"
+  DeployUserPassword: "Пароль пользователя от которого запускается публикация"
 
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/Completed-RXDTDeploy-Component/Completed-RXDTDeploy-Component@main
