@@ -1,5 +1,7 @@
 spec:
   inputs:
+    StageStartModeName:
+      default: "Ручной старт"
     StageCheckVariablesName:
       default: "Проверка переменных"
     StagePreparedServerName:
@@ -28,12 +30,17 @@ variables:
   GIT_STRATEGY: none #Чтоб не клонировать текущую репу
 
 stages:          # List of stages for jobs, and their order of execution
+  - $[[ inputs.StageStartModeName ]]
   - $[[ inputs.StageCheckVariablesName ]]
   - $[[ inputs.StagePreparedServerName ]]
   - $[[ inputs.StageBuildPackageName ]]
   - $[[ inputs.StageDeployDTPackageName ]]
 
 include:
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-StartMode-Component/RX-StartMode-Component@main
+    inputs:
+      stage: $[[ inputs.StageStartModeName ]]
+      rules: $[[ inputs.rules ]]
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
     inputs:
       stage: $[[ inputs.StageCheckVariablesName ]]
