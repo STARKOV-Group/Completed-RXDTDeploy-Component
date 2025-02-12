@@ -10,6 +10,8 @@ spec:
       default: "Сборка пакета"
     StageDeployDTPackageName:
       default: "Публикация (DT)"
+    StageUploadPackageName:
+      default: "Выгрузка в облако"
     rules:
       default: '$CI_COMMIT_BRANCH == "Test" ||  $CI_COMMIT_BRANCH == "test"'
 ---
@@ -35,6 +37,7 @@ stages:          # List of stages for jobs, and their order of execution
   - $[[ inputs.StagePreparedServerName ]]
   - $[[ inputs.StageBuildPackageName ]]
   - $[[ inputs.StageDeployDTPackageName ]]
+  - $[[ inputs.StageUploadPackageName ]]
 
 include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-StartMode-Component/RX-StartMode-Component@main
@@ -56,4 +59,8 @@ include:
   - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
     inputs:
       stage: $[[ inputs.StageDeployDTPackageName ]]
+      rules: $[[ inputs.rules ]]
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-UploadPackage-Component/RX-UploadPackage-Component@main
+    inputs:
+      stage: $[[ inputs.StageUploadPackageName ]]
       rules: $[[ inputs.rules ]]
