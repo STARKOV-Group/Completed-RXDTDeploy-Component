@@ -53,7 +53,7 @@ include:
     inputs:
       stage: $[[ inputs.StagePreparedServerName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@main
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@test
     inputs:
       stage: $[[ inputs.StageBuildPackageName ]]
       rules: $[[ inputs.rules ]]
