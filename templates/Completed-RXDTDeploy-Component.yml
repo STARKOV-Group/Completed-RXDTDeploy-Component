@@ -17,7 +17,7 @@ spec:
 ---
 
 variables:
-  BuildMod: DebugRelease
+  BuildMode: DebugRelease
   DDSFolderPath: C:\CICD\DDS
   DTFolderPath: C:\CICD\DTCore
   AutoGenPackageUtilPath: C:\CICD\Tools\PackageXMLGenerator
