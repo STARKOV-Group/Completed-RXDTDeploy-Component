@@ -41,7 +41,7 @@ variables:
   Repositories: 
     Список репозиториев в формате "[Work или Base] | [ssh путь до репы]" 
   # Задавать желательно через переменные в настройках Ci_CD чтоб не хранить в открытом доступе. 
-  DeployIpServer: "Ip сервера]   
+  DeployIpServer: "Ip сервера"   
   WebProtocol: "http или https, можно пропустить если стандартный http" 
   ServerHttpsPort: "Порт https, можно пропустить если стандартный 443"
   ServerHttpPort: "Порт http, можно пропустить если стандартный 80"
