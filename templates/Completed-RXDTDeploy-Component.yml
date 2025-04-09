@@ -61,7 +61,7 @@ include:
     inputs:
       stage: $[[ inputs.StageDeployDTPackageName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-UploadPackage-Component/RX-UploadPackage-Component@main
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-UploadPackage-Component/RX-UploadPackage-Component@varTest
     inputs:
       stage: $[[ inputs.StageUploadPackageName ]]
       rules: $[[ inputs.rules ]]
