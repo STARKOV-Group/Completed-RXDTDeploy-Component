@@ -13,7 +13,7 @@ spec:
     StageUploadPackageName:
       default: "Выгрузка в облако"
     rules:
-      default: '$CI_COMMIT_BRANCH == "Test" ||  $CI_COMMIT_BRANCH == "test"'
+      default: '"true" == "true"'
 ---
 
 variables:
