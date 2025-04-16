@@ -17,7 +17,6 @@ spec:
 ---
 
 variables:
-  BuildMode: DebugRelease
   DDSFolderPath: C:\CICD\DDS
   DTFolderPath: C:\CICD\DTCore
   AutoGenPackageUtilPath: C:\CICD\Tools\PackageXMLGenerator
@@ -26,11 +25,13 @@ variables:
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
   PackageProjectPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\Packages\$CI_PROJECT_NAME
-  # Стандартные настройки
+  GIT_STRATEGY: none #Чтоб не клонировать текущую репу
+  # Стандартные настройки для компонент
   WebProtocol: http
   ServerHttpsPort: 443
   ServerHttpPort: 80
-  GIT_STRATEGY: none #Чтоб не клонировать текущую репу
+  BuildMode: DebugRelease
+  
 
 stages:          # List of stages for jobs, and their order of execution
   - $[[ inputs.StageStartModeName ]]
