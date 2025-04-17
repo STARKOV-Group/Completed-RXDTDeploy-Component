@@ -31,6 +31,7 @@ variables:
   ServerHttpsPort: 443
   ServerHttpPort: 80
   BuildMode: DebugRelease
+  DeployDestination: ""
   
 
 stages:          # List of stages for jobs, and their order of execution
