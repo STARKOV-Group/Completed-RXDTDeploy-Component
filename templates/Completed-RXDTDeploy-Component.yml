@@ -31,6 +31,7 @@ variables:
   ServerHttpsPort: 443
   ServerHttpPort: 80
   BuildMode: DebugRelease
+  DeployDestination: ""
   
 
 stages:          # List of stages for jobs, and their order of execution
@@ -46,11 +47,11 @@ include:
     inputs:
       stage: $[[ inputs.StageStartModeName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@test
     inputs:
       stage: $[[ inputs.StageCheckVariablesName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@test
     inputs:
       stage: $[[ inputs.StagePreparedServerName ]]
       rules: $[[ inputs.rules ]]
@@ -58,7 +59,7 @@ include:
     inputs:
       stage: $[[ inputs.StageBuildPackageName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@test
     inputs:
       stage: $[[ inputs.StageDeployDTPackageName ]]
       rules: $[[ inputs.rules ]]
