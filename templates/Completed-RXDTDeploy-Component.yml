@@ -17,6 +17,7 @@ spec:
 ---
 
 variables:
+  RunnerTags: ""
   DDSFolderPath: C:\CICD\DDS
   DTFolderPath: C:\CICD\DTCore
   AutoGenPackageUtilPath: C:\CICD\Tools\PackageXMLGenerator
@@ -24,7 +25,8 @@ variables:
   GitProjectFolder: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\$CI_PROJECT_NAME
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
-  PackageProjectPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\Packages\$CI_PROJECT_NAME
+  LogsPath: $CI_PROJECT_DIR
+  PackageProjectPath: $CI_PROJECT_DIR
   GIT_STRATEGY: none #Чтоб не клонировать текущую репу
   # Стандартные настройки для компонент
   WebProtocol: http
@@ -32,6 +34,7 @@ variables:
   ServerHttpPort: 80
   BuildMode: DebugRelease
   DeployDestination: ""
+  NeedApplySettings: "False"
   
 
 stages:          # List of stages for jobs, and their order of execution
