@@ -4,9 +4,7 @@
 
 Готовый к использованию компонент по сборке/доставке разработки.
 
-Вызывает другие компоненты для различных задач: [ручной старт](https://git.starkovgrp.ru/ci-cd-components/rx-startmode-component), [подготовка переменных](https://git.starkovgrp.ru/ci-cd-components/RX-CheckVariables-Component), [подготовка сервера](https://git.starkovgrp.ru/ci-cd-components/RX-PreparedServer-Component), [сборка пакета](https://git.starkovgrp.ru/ci-cd-components/RX-BuildPackage-Component), [публикация пакета на сервер](https://git.starkovgrp.ru/ci-cd-components/RX-DeployDTPackage-Component) и [выгрузка пакета в корпоративное облако](https://git.starkovgrp.ru/ci-cd-components/RX-UploadPackage-Component).
-
-Статья по подключению на буке: [тык](https://book.starkovgrp.ru/books/ci-cd/chapter/nastroiki-podkliuceniia-k-proektu); 
+Вызывает другие компоненты для различных задач: [ручной старт](https://github.com/STARKOV-Group/rx-startmode-component), [подготовка переменных](https://github.com/STARKOV-Group/RX-CheckVariables-Component), [подготовка сервера](https://github.com/STARKOV-Group/RX-PreparedServer-Component), [сборка пакета](https://github.com/STARKOV-Group/RX-BuildPackage-Component), [публикация пакета на сервер](https://github.com/STARKOV-Group/RX-DeployDTPackage-Component) и [выгрузка пакета в корпоративное облако](https://github.com/STARKOV-Group/RX-UploadPackage-Component).
 
 #### Общие переменные:
 
@@ -38,8 +36,8 @@
 **Обязательность:** Нет  
 **Возможные значения:** Любое название тега ранера  
 
-> ![note]
-> Далее указаны сетевые настройки, их лучше не указывать напрямую, а создать переменные в CICD проекта
+> [!note]
+>Далее указаны сетевые настройки, их лучше не указывать напрямую, а создать переменные в CICD проекта.
 
 ##### WebProtocol
 
@@ -134,8 +132,8 @@
 **Обязательность**: Да  
 **Значение по умолчанию:** none
 
-> ![note]
-> Далее идут совершенно не обязательные настройки названий этапов. Для корректной работы их указывать не надо, но если не нравятся значения по умолчанию их можно указать свои.
+> [!note]
+>Далее идут совершенно не обязательные настройки названий этапов. Для корректной работы их указывать не надо, но если не нравятся значения по умолчанию их можно указать свои.
 
 #### Инпуты:
 
@@ -177,4 +175,5 @@
 
 **Описание:** Название этапа для использования компоненты "RX UploadPackage"  
 **Значение по умолчанию:** "Выгрузка в облако"  
+
 **Обязательность:** Нет
