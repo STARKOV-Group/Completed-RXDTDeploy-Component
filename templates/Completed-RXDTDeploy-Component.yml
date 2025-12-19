@@ -46,27 +46,28 @@ stages:          # List of stages for jobs, and their order of execution
   - $[[ inputs.StageUploadPackageName ]]
 
 include:
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-StartMode-Component/RX-StartMode-Component@main
+  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/rx-startmode-component/refs/heads/main/templates/RX-StartMode-Component.yml'
     inputs:
       stage: $[[ inputs.StageStartModeName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
+  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-CheckVariables-Component./refs/heads/main/templates/RX-CheckVariables-Component.yml'
     inputs:
       stage: $[[ inputs.StageCheckVariablesName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
+  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-PreparedServer-Component/refs/heads/main/templates/RX-PreparedServer-Component.yml'
     inputs:
       stage: $[[ inputs.StagePreparedServerName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@main
+  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-BuildPackage-Component/refs/heads/main/templates/RX-BuildPackage-Component.yml'
     inputs:
       stage: $[[ inputs.StageBuildPackageName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
+  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-DeployDTPackage-Component/refs/heads/main/templates/RX-DeployDTPackage-Component.yml'
     inputs:
       stage: $[[ inputs.StageDeployDTPackageName ]]
       rules: $[[ inputs.rules ]]
-  - component: $CI_SERVER_FQDN/ci-cd-components/RX-UploadPackage-Component/RX-UploadPackage-Component@main
+  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-UploadPackage-Component/refs/heads/main/templates/RX-UploadPackage-Component.yml'
     inputs:
       stage: $[[ inputs.StageUploadPackageName ]]
+
       rules: $[[ inputs.rules ]]
