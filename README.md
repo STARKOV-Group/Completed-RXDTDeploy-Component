@@ -6,6 +6,9 @@
 
 Вызывает другие компоненты для различных задач: [ручной старт](https://github.com/STARKOV-Group/rx-startmode-component), [подготовка переменных](https://github.com/STARKOV-Group/RX-CheckVariables-Component), [подготовка сервера](https://github.com/STARKOV-Group/RX-PreparedServer-Component), [сборка пакета](https://github.com/STARKOV-Group/RX-BuildPackage-Component), [публикация пакета на сервер](https://github.com/STARKOV-Group/RX-DeployDTPackage-Component) и [выгрузка пакета в корпоративное облако](https://github.com/STARKOV-Group/RX-UploadPackage-Component).
 
+> [!warning]
+> Для корректного использования компоненты "[Публикация пакета на сервер](https://github.com/STARKOV-Group/RX-DeployDTPackage-Component)" нужно форкнуть/слить репозиторий к себе и заменить ссылку на raw yml файл на свою
+
 #### Общие переменные:
 
 ##### **<span style="color: rgb(53, 152, 219);">Пользовательские настройки</span>**
@@ -177,4 +180,5 @@
 **Значение по умолчанию:** "Выгрузка в облако"  
 
 **Обязательность:** Нет
+
 
