@@ -17,6 +17,7 @@ spec:
 ---
 
 variables:
+  RunnerTags: ""
   DDSFolderPath: C:\CICD\DDS
   DTFolderPath: C:\CICD\DTCore
   AutoGenPackageUtilPath: C:\CICD\Tools\PackageXMLGenerator
@@ -24,7 +25,8 @@ variables:
   GitProjectFolder: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\$CI_PROJECT_NAME
   DDSConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DDS\$RXVERSION\bin
   DTConfigPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\DT\$RXVERSION
-  PackageProjectPath: $ProjectsFolderPath\$CI_PROJECT_NAMESPACE\Packages\$CI_PROJECT_NAME
+  LogsPath: $CI_PROJECT_DIR
+  PackageProjectPath: $CI_PROJECT_DIR
   GIT_STRATEGY: none #Чтоб не клонировать текущую репу
   # Стандартные настройки для компонент
   WebProtocol: http
@@ -32,6 +34,7 @@ variables:
   ServerHttpPort: 80
   BuildMode: DebugRelease
   DeployDestination: ""
+  NeedApplySettings: "False"
   
 
 stages:          # List of stages for jobs, and their order of execution
@@ -43,27 +46,27 @@ stages:          # List of stages for jobs, and their order of execution
   - $[[ inputs.StageUploadPackageName ]]
 
 include:
-  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/rx-startmode-component/refs/heads/main/templates/RX-StartMode-Component.yml'
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-StartMode-Component/RX-StartMode-Component@main
     inputs:
       stage: $[[ inputs.StageStartModeName ]]
       rules: $[[ inputs.rules ]]
-  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-CheckVariables-Component./refs/heads/main/templates/RX-CheckVariables-Component.yml'
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-CheckVariables-Component/RX-CheckVariables-Component@main
     inputs:
       stage: $[[ inputs.StageCheckVariablesName ]]
       rules: $[[ inputs.rules ]]
-  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-PreparedServer-Component/refs/heads/main/templates/RX-PreparedServer-Component.yml'
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-PreparedServer-Component/RX-PreparedServer-Component@main
     inputs:
       stage: $[[ inputs.StagePreparedServerName ]]
       rules: $[[ inputs.rules ]]
-  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-BuildPackage-Component/refs/heads/main/templates/RX-BuildPackage-Component.yml'
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-BuildPackage-Component/RX-BuildPackage-Component@main
     inputs:
       stage: $[[ inputs.StageBuildPackageName ]]
       rules: $[[ inputs.rules ]]
-  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-DeployDTPackage-Component/refs/heads/main/templates/RX-DeployDTPackage-Component.yml'
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-DeployDTPackage-Component/RX-DeployDTPackage-Component@main
     inputs:
       stage: $[[ inputs.StageDeployDTPackageName ]]
       rules: $[[ inputs.rules ]]
-  - remote: 'https://raw.githubusercontent.com/STARKOV-Group/RX-UploadPackage-Component/refs/heads/main/templates/RX-UploadPackage-Component.yml'
+  - component: $CI_SERVER_FQDN/ci-cd-components/RX-UploadPackage-Component/RX-UploadPackage-Component@main
     inputs:
       stage: $[[ inputs.StageUploadPackageName ]]
       rules: $[[ inputs.rules ]]
